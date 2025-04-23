@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farjana Alam Nitu - Portfolio</title>
+  <link rel="icon" type="image/png" href="images/your-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: white;
+      background-color: #121212;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(18, 18, 18, 0.95);
+      padding: 20px 5%;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: #FFD700;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background-color: #1a1a1a;
+        border: 1px solid #FFD700;
+        border-radius: 8px;
+        width: 200px;
+        padding: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #home {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-right: 50px;
+    }
+
+    .hero-image-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-image {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+      border: 3px solid #e9e5cb;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin-bottom: 40px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .quote::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-size: 3rem;
+      color: #FFD700;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #121212;
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #FFC000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .image-caption {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .image-caption h2 {
+      color: #FFD700;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+      #home {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding-right: 0;
+        margin-bottom: 50px;
+      }
+
+      .quote::before {
+        left: 50%;
+        transform: translateX(-50%);
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#home">
+          <img src="images/your-logo.png" alt="Logo" />
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Research</a></li>
+        <li><a href="#work">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Glory</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div class="hero-content">
+        <h1 style="font-family: 'Pacifico', cursive; font-weight: normal; margin-top: 40px;">
+            A Belief I've Always Stood By ---
+          </h1>
+        <p style="color: #FFB800; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">
+          " Winners never quit, and quitters never win "
+        </p>
+        
+        <!-- Find Me Here Section -->
+        <div class="find-me-container" style="margin-bottom: 30px;">
+          <p class="find-me-text">Feel free to reach out! Contact: </p>
+          <div class="social-icons">
+            <a href="https://github.com/nitu2102" target="_blank" class="social-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill="#ffffff"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/nitu2102" target="_blank" class="social-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="#ffffff"/>
+              </svg>
+            </a>
+            <a href="mailto:farjanalam2102@gmail.com" class="social-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="#ffffff"/>
+                <path d="M22 6l-10 7L2 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      
+        <a href="images/Farjana Alam_Resume.pdf" class="btn">Download CV</a>
+      </div>
+      
+      <style>
+      .find-me-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .find-me-text {
+        margin: 0;
+        white-space: nowrap;
+      }
+      
+      .social-icons {
+        display: flex;
+        gap: 16px;
+      }
+      
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
+        transition: all 0.3s ease;
+      }
+      
+      .social-icon:hover {
+        background: #FFD700;
+        transform: scale(1.1);
+        border-color: #FFD700;
+      }
+      
+      .social-icon:hover svg path {
+        fill: #121212;
+      }
+      
+      .social-icon:hover svg path[stroke] {
+        stroke: #121212;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .find-me-container {
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          gap: 15px;
+        }
+        
+        .social-icons {
+          justify-content: center;
+        }
+      }
+      </style>
+     
+    </div>
+    <div class="hero-image-container">
+      <img src="images/your-photo.jpg" alt="Your Name" class="hero-image">
+      <div class="image-caption">
+        <h2 style="font-family: 'Lobster', cursive; font-weight: normal;">Farjana Alam (Nitu)</h2>
+        <p>Computer Science Graduate</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 style="color: #ffffff; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">About Me</h2> <!-- Moved heading outside container -->
+    <div class="about-container">
+      <div class="about-image-container">
+        <img src="images/your-photo1.jpg" alt="Farjana Alam" class="about-image">
+      </div>
+      <div class="about-content">
+        <h2 style="font-family: 'Lobster', cursive; font-weight: normal;">Education</h2>
+        <p>I recently completed my B.Sc. in Computer Science at BRAC University, Dhaka, where I studied from 2020 to 2024. I successfully finished all my courses, including my undergraduate thesis, in October 2024. I was honored to be part of the 16th Convocation, held on February 25, 2025. Prior to that, I completed my HSC at Motijheel Model School and College, and my SSC at Maniknagar Model High School. These academic experiences have shaped my perspective, strengthened my skills, and prepared me to make meaningful contributions in the tech field. I’m truly grateful for the journey so far and excited about the opportunities that the future holds.</p>
+
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px; /* Reduced from 50px to match home section */
+    width: 100%;
+  }
+  
+  .about-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .about-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    border: 3px solid #e9e5cb;
+  }
+  
+  .about-content {
+    flex: 1;
+    padding-left: 20px; /* Reduced from 30px */
+  }
+  
+  .about-content h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+  }
+  
+  .about-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      gap: 20px; /* Adjusted for mobile */
+    }
+    
+    .about-image-container {
+      justify-content: center;
+      margin-bottom: 20px; /* Reduced from 30px */
+    }
+    
+    .about-content {
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+  </style>
+
+  <section id="skills" class="skills">
+    <h2 style="color: #ffffff; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">Research</h2>
+    <div class="skills-grid">
+        <div class="skill-card" style="position: relative; min-height: 200px; display: flex; flex-direction: column;">
+            <div>
+                <h3 style="margin: 1rem 0; font-size: 1rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">
+                    Understanding Convolutional Neural Network's Behavior for Alzheimer's Disease on MRI
+                </h3>
+                <p style="margin-bottom: 1.5rem;">DOI: 10.1109/IEMCON56893.2022.9946529</p>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                <a href="https://doi.org/10.1109/IEMCON56893.2022.9946529" class="btn" target="_blank" style="display: inline-block;">View</a>
+            </div>
+        </div>
+        <div class="skill-card" style="position: relative; min-height: 200px; display: flex; flex-direction: column;">
+            <div>
+                <h3 style="margin: 1rem 0; font-size: 1rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">
+                    Comparison of deep learning models for weather forecasting in different climatic zones
+                </h3>
+                <p style="margin-bottom: 1.5rem;">ISSN 2721-0251</p>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                <a href="https://www.icsejournal.com/index.php/JCSE/article/view/729?fbclid=IwAR0KIDyg1IHM09JoKRLKA_j8DgLG0xnroF_Adhjxj1Log3VVcoskXZVV7hQ" class="btn" target="_blank" style="display: inline-block;">View</a>
+            </div>
+        </div>
+        <div class="skill-card" style="position: relative; min-height: 200px; display: flex; flex-direction: column;">
+            <div>
+                <h3 style="margin: 1rem 0; font-size: 1rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">
+                    Quality Assessment of Extracted Information from Newspaper Comment Sections using NLP
+                </h3>
+                <p style="margin-bottom: 1.5rem;">Thesis</p>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                <a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/22782" class="btn" target="_blank" style="display: inline-block;">View</a>
+            </div>
+        </div>
+       
+    </div>
+</section>
+
+<!-- Work Experience Section -->
+<section id="work" class="work">
+    <h2 style="color: #ffffff; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">Experience</h2>
+    <div class="work-container">
+      <div class="work-content">
+        <h2 style="font-family: 'Lobster', cursive; font-size: 1.6rem; font-weight: normal;">Work Experience & Skills</h2>
+        <p style="font-size: 1.3rem; color: #ffffff; font-weight: bold; font-family: Georgia, serif; font-style: italic;"> Student Mentor, OAA – BRAC University</p>
+        <p style="font-size: 1rem;"> • Mentored and guided students enrolled from Fall 2022 to Summer 2023.</p>
+        <p style="font-size: 1rem;">  • Served as part of the First-Year Advising Team (FYAT) from Fall 2022 to Spring 2024.</p> 
+        <p style="font-size: 1.3rem;color: #ffffff; font-weight: bold; font-family: Georgia, serif; font-style: italic"> Senior Contributor (AI & Firmware) – BRACU Dichari</p>
+        <p style="font-size: 1rem;">  • Collected, verified, labeled, and processed a dataset of over 5,000 images.</p>
+        <p style="font-size: 1rem;">  • Contributed to the development of machine learning models using YOLOv5.</p>
+        <p style="font-size: 1rem;">  • Achieved 83% accuracy in real-time detection of injured individuals during natural disasters.</p>
+
+        
+      </div>
+      <div class="tech-icons">
+        <!-- Programming Languages -->
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+          <span>C</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+          <span>C++</span>
+        </div>
+        
+        <!-- Web Development -->
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+          <span>Django</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+          <span>CSS3</span>
+        </div>
+        
+        <!-- Version Control -->
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+          <span>Git</span>
+        </div>
+        
+        <!-- Database -->
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+          <span>MySQL</span>
+        </div>
+        
+        <!-- AI/ML -->
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="Machine Learning">
+          <span>Machine Learning</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+          <span>OpenCV</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  /* Work Section Styles */
+  .work {
+    padding: 80px 5%;
+  }
+  
+  .work-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    margin-top: 40px;
+  }
+  
+  .work-content {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .work-content h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+  }
+  
+  .work-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .tech-icons {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    padding-left: 20px;
+  }
+  
+  .tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-icon span {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .tech-icon:hover img {
+    transform: scale(1.2);
+  }
+  
+  .tech-icon:hover {
+    color: #FFD700;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .work-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .work-content {
+      padding-right: 0;
+      text-align: center;
+    }
+    
+    .tech-icons {
+      padding-left: 0;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+  }
+  </style>
+
+
+  <section id="projects" class="projects">
+    <h2 style="color: #ffffff; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">Projects</h2>
+    <div class="project-grid">
+        <!-- BRACUnite Project (2 buttons) -->
+        <div class="project-card" style="position: relative; min-height: 380px; display: flex; flex-direction: column;">
+            <div>
+                <h3>BRACUnite</h3>
+                <p>A Django-powered networking platform for BRACU's students, alumni, and faculty. It includes profile management, ride-sharing, CV generation, and an embedded Pygame mini-game, all aimed at fostering community connections.</p>
+                <div class="tech-stack">
+                    <span>#Django</span>
+                    <span>#HTML</span>
+                    <span>#CSS</span>
+                    <span>#Js</span>
+                    <span>#PostgreSQL</span>
+                </div>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding: 20px 0;">
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <a href="https://brac-unite.vercel.app" class="btn" target="_blank">View Demo</a>
+                    <a href="https://github.com/nitu2102/bracUnite" class="btn" target="_blank">Source Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find Your BRACU Mates Project (1 button) -->
+        <div class="project-card" style="position: relative; min-height: 380px; display: flex; flex-direction: column;">
+            <div>
+                <h3>Find Your BRACU Mates</h3>
+                <p>A PHP-MySQL-based user management system designed for BRACU students, alumni, and blood donors. It features secure login, interest-based search, and verification mechanisms along with "FAQ" and "Lost & Found" sections for community engagement.</p>
+                <div class="tech-stack">
+                    <span>#PHP</span>
+                    <span>#HTML</span>
+                    <span>#CSS</span>
+                    <span>#Bootstrap</span>
+                    <span>#MySQL</span>
+                </div>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding: 20px 0;">
+                <a href="https://github.com/nitu2102/FIND-YOUR-BRACU-MATES-CSE370-PROJECT-SPRING-2022" class="btn" target="_blank">View Project</a>
+            </div>
+        </div>
+
+        <!-- The Dogge Game Project (2 buttons) -->
+        <div class="project-card" style="position: relative; min-height: 380px; display: flex; flex-direction: column;">
+            <div>
+                <h3>The Dogge Game</h3>
+                <p>A humorous game built with PyGame, inspired by viral memes and regional audio. It offers a fun, interactive experience with score tracking and meme-based sound effects, playable directly in the browser using Pygbag.</p>
+                <div class="tech-stack">
+                    <span>#Python</span>
+                    <span>#Pygbag</span>
+                    <span>#PyGame</span>
+                    <span>#Web Hosting</span>
+                </div>
+            </div>
+            <div style="margin-top: auto; text-align: center; padding: 20px 0;">
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <a href="https://nitu2102.github.io/Doge-game-online/?fbclid=IwAR1LEIwCHoofVm4JJkWqkoIqFtkeG2BTSGYxuIV3mmCKxnLvyZoCgvU_McA" class="btn" target="_blank">Play Game</a>
+                    <a href="https://github.com/nitu2102/Doge-game-online" class="btn" target="_blank">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Button styles (same as your existing .btn class) */
+.btn {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #121212;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    min-width: 120px;
+}
+
+.btn:hover {
+    background-color: #FFC000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Project card adjustments */
+.project-card {
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card > div:last-child {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+
+
+
+<section id="contact" class="contact">
+    <h2 style="color: #ffffff; margin: 2rem 0; font-size: 1.6rem; font-weight: bold; font-family: Georgia, serif; font-style: italic;">
+        G <span style="color: #FFB800">L</span> O <span style="color: #FFB800">R</span> Y
+      </h2>
+    <p style="font-size: 1rem;color: #ffffff; font-family: Georgia, serif; font-style: italic">• Received Merit Scholarship based on BRAC University Academic Results from SUMMER2021 semester to SPRING2023 semester.</p>
+    <p style="font-size: 1rem;color: #ffffff; font-family: Georgia, serif; font-style: italic">• Completed Bachelor’s with High Distinction, Got placed on Vice Chancellor’s List for four times and Dean’s List for once during Bachelor’s (Awarded as recognition of achieving a GPA of 3.90-4.00 on a particular semester).</p>
+    <p style="font-size: 1rem;color: #ffffff; font-family: Georgia, serif; font-style: italic">• Secured a position in the top 10% of participants in the BRACU Intra-University Girls' Programming Contest, Summer 2023.</p>
+
+</section>
+
+
+<script src="script.js"></script>
+
+  <footer><p>&copy; 2025| Farjana Alam. All rights reserved.</p></footer>
+
+  <!-- Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
